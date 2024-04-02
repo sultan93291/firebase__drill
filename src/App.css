@@ -1,0 +1,41 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+ul,ol{
+  list-style-type: none;
+}
+
+h1,h2,h3,h4,h5,h6,p{
+  line-height: normal;
+}
+
+a{
+  text-decoration: none;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+ 
+}
+
+form input,label{
+  height: 50px;
+  width: 150px;
+   margin: 0 auto;
+  
+}
+
+form div{
+  margin: 0 auto;
+}
+
+button{
+  height: 50px;
+  width: 150px;
+  margin: 0 auto;
+}
