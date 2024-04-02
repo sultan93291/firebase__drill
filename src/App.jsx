@@ -11,6 +11,7 @@ function App() {
     roll: "",
     gender: "",
     password: "",
+    course: "",
   });
 
   console.log(User);
@@ -22,7 +23,7 @@ function App() {
 
   const handleSubmit = e => {
     e.preventDefault();
-    const { name, email, roll, gender, password } = User;
+    const { name, email, roll, gender, password, course } = User;
     const db = getDatabase();
     set(ref(db, "/users" + roll), {
       user: {
@@ -31,6 +32,7 @@ function App() {
         roll: roll,
         gender: gender,
         password: password,
+        course: course,
       },
     }).then(() => {
       setUser({
@@ -39,6 +41,7 @@ function App() {
         password: "",
         roll: "",
         gender: "",
+        course: "",
       });
     });
   };
@@ -89,6 +92,19 @@ function App() {
             value={"female"}
           />
           <label htmlFor="female">female</label>
+        </div>
+        <div>
+          <select
+            id="course"
+            value={User.course}
+            onChange={handleForm}
+            name="course"
+            placeholder="course"
+          >
+            <option value="mern"> mern </option>
+            <option value="mean">mean</option>
+            <option value="networking"> networking </option>
+          </select>
         </div>
         <button type="submit">submit data</button>
       </form>
