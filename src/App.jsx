@@ -2,7 +2,7 @@
 import { useState } from "react";
 import "./App.css";
 import app from "./Config/firebaseConf";
-import { getDatabase, ref, set } from "firebase/database";
+import { getDatabase, ref, set, push } from "firebase/database";
 
 function App() {
   const [User, setUser] = useState({
@@ -25,7 +25,7 @@ function App() {
     e.preventDefault();
     const { name, email, roll, gender, password, course } = User;
     const db = getDatabase();
-    set(ref(db, "/users" + roll), {
+    set(push(ref(db, "/users")), {
       user: {
         userName: name,
         email: email,
@@ -80,6 +80,7 @@ function App() {
             onChange={handleForm}
             name="gender"
             value={"male"}
+            checked={User.gender === "male"}
           />
           <label htmlFor="male" value="male">
             male
@@ -90,6 +91,7 @@ function App() {
             onChange={handleForm}
             name="gender"
             value={"female"}
+            checked={User.gender === "female"}
           />
           <label htmlFor="female">female</label>
         </div>
